@@ -1,13 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+*,
+*::before,
+*::after{margin: 0;padding: 0;box-sizing: border-box;}
+:root {
+  --black:#000;
+  --white: #fff;
+  --gray: #ccc;
+  --blue: #11162efa;
+  --blue-light:#0579a7;
+  --red: #ff0000;
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+html {font-size: 16px;}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  min-height: 100vh;
+  font-family: var( --font-montserrat);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+a {text-decoration: none;}
+ul,li,p,
+.row{margin:0;width: 100%;}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*Header*/
+.site-header{
+  background-color: var(--blue);
+  position: fixed;
+  display: block;
+  width: 100%;
+  z-index:100;
 }
+.Header{
+  margin:0 auto;
+  max-width: 1000px;
+  color:var(--white);
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ul {
+  width: 100%;
+  list-style: none;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+li a {color: var(--white);cursor: pointer;}
+li.logo a {font-size: 2rem;}
+li.logo a:hover {color:var(--blue-light);}
+.add-button{
+  max-width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-image: linear-gradient(to right, #00b7ff 50%, #00b7ff 50%, var(--blue-light));
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.4s;
+  color:var(--white);
+  font-weight: 400;
+  cursor: pointer;
+  border: none;
+}
+.add-button:hover{
+  background-position: 100% 0%;
+  color:var(--white);
+}
+
+/*APP*/
+.App {
+  margin:0 auto;
+  padding-top: 100px;
+  max-width: 1000px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0px 0px 15px var(--gray);
+}
+
+/*MAIN*/
+.Home .post a {font-size: 1rem;font-weight: 300;color: var(--blue);} 
+.Home .post a:visited {font-size: 1rem;font-weight: 300;color: var(--blue);}
+.post {padding: 0.5rem;border-bottom: 1px solid var(--gray);}
+.post:hover {background-color: var(--gray);}
+.Home, .NewPost, .PostPage {
+  width: 100%;
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: var(--white);
+}
+
+/*PostPage*/
+.PostPage{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.PostPage p{
+  margin:0;
+  padding-top: 50px;
+}
+
+/*NEW POST*/
+.newPostForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.newPostForm button{
+  margin-top: 30px;
+  color:var(--white);
+  font-size: 1rem;
+  padding: 10px 25px;
+  border: none;
+  cursor: pointer;
+}
+.section-heading h3{
+  margin: 0 0 50px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 69px;
+  color: var(--blue);
+}
+.section-heading h3:after {
+  content:"";
+  display: block;
+  width: 100px;
+  border-top: 3px solid var(--blue-light);
+  margin: 22px auto 32px;
+}
+form .form-inner .form-group {
+  display: block;
+  width: 300px;
+  margin-bottom: 15px;
+}
+.form-inner .form-group label {
+  display: block;
+  color: var(--blue-light);
+  font-size: 1rem;
+  margin-bottom: 5px;
+  transition: 0.4s;
+}
+.form-inner .form-group:focus-within label{color: var(--red);}
+form .form-inner .form-group input,form .form-inner .form-group textarea {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  padding: 10px 15px;
+  background-color: var(--white);
+  border-radius: 8px;
+  transition: 0.4s;
+}
+form .form-inner .form-group input:focus,form .form-inner .form-group textarea:focus {
+  box-shadow: 0px 0px 3px var(--gray);
+}
+
+/*FOOTER*/
+.Footer {
+  width: 100%;
+  background-color:var(--blue);
+  color:var(--white);
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Footer {padding: 0.75rem;display: grid;place-content: center;}
+
+/*Media Media*/
+@media only screen and (min-width: 600px) {
+  html {font-size: 22px;}
+}
+@media only screen and (max-width: 600px) {
+  .App {padding-top: 70px;}
+}
+
